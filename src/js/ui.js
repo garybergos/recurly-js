@@ -643,11 +643,11 @@ R.buildBillingInfoUpdateForm = function(options) {
       , error: function(errors) {
           if(!options.onError || !options.onError(errors)) {
             displayServerErrors($form, errors);
+            $form.removeClass('submitting');
+            $form.find('button.submit').removeAttr('disabled').text(prevText);
           }
         }
       , complete: function() {
-          $form.removeClass('submitting');
-          $form.find('button.submit').removeAttr('disabled').text(prevText);
         }
       });
     });
