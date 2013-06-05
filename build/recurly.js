@@ -1702,11 +1702,11 @@ R.buildBillingInfoUpdateForm = function(options) {
       , error: function(errors) {
           if(!options.onError || !options.onError(errors)) {
             displayServerErrors($form, errors);
+            $form.removeClass('submitting');
+            $form.find('button.submit').removeAttr('disabled').text(prevText);
           }
         }
       , complete: function() {
-          $form.removeClass('submitting');
-          $form.find('button.submit').removeAttr('disabled').text(prevText);
         }
       });
     });
@@ -2285,7 +2285,6 @@ R.states.US = {
 , "--": "------------"
 , "AK": "Alaska"
 , "AL": "Alabama"
-, "AP": "Armed Forces Pacific"
 , "AR": "Arkansas"
 , "AS": "American Samoa"
 , "AZ": "Arizona"
@@ -2295,7 +2294,6 @@ R.states.US = {
 , "DC": "District of Columbia"
 , "DE": "Delaware"
 , "FL": "Florida"
-, "FM": "Federated States of Micronesia"
 , "GA": "Georgia"
 , "GU": "Guam"
 , "HI": "Hawaii"
@@ -2309,11 +2307,9 @@ R.states.US = {
 , "MA": "Massachusetts"
 , "MD": "Maryland"
 , "ME": "Maine"
-, "MH": "Marshall Islands"
 , "MI": "Michigan"
 , "MN": "Minnesota"
 , "MO": "Missouri"
-, "MP": "Northern Mariana Islands"
 , "MS": "Mississippi"
 , "MT": "Montana"
 , "NC": "North Carolina"
@@ -2329,7 +2325,6 @@ R.states.US = {
 , "OR": "Oregon"
 , "PA": "Pennsylvania"
 , "PR": "Puerto Rico"
-, "PW": "Palau"
 , "RI": "Rhode Island"
 , "SC": "South Carolina"
 , "SD": "South Dakota"
